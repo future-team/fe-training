@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            color:#fff;
+        }
+        .box
+
+        {
+
+            background:black;
+
+            height:100px;
+            margin: 10px;
+            padding: 10px;
+
+        }
+
+        .contain
+
+        {
+
+            background:yellow;
+
+            height:120px;
+
+            width:200px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+
+    <div class="box" style="width:100%;">设置box的内、外边距，超出父元素的宽度</div>
+
+</div>
+
+<div class="contain">
+
+    <div class="box">设置box的内、外边距，并宽度自适应后的效果，左右外边距没有超出父元素宽度，上下外边距却...</div>
+
+</div>
+<div class="contain" style="background-color: #f00;">
+
+    <div class="box" style="height: 80px"></div>
+
+</div>
+
+<div class="contain" style="margin-bottom: 10px">
+
+</div>
+<div style="margin:0;margin-top: 15px;width: 200px" class="box"></div>
+
+
+</body>
+</html>
