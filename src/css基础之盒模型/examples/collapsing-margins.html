@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外边距叠加</title>
+    <style>
+        body{
+
+        }
+
+    </style>
+</head>
+<body>
+    <p>普通流外边距叠加</p>
+    <div style="background: #00ffff;margin-bottom: 10px;width: 50px;height: 50px;">
+
+    </div>
+    <div style="background: #cccccc;margin-top: 15px;width: 50px;height: 50px;">
+
+    </div>
+
+    <p>普通流子元素边距叠加</p>
+    <div style="background: #00ffff;margin-bottom: 10px;width: 50px;height: 50px;">
+        <div style="background: #cccccc;margin-top: 15px;width: 25px;height: 25px;">
+
+        </div>
+    </div>
+
+    <p>bfc子元素边距未叠加</p>
+    <div style="background: #00ffff;margin-bottom: 10px;width: 50px;height: 50px;overflow: hidden">
+        <div style="background: #cccccc;margin-top: 15px;width: 25px;height: 25px;">
+
+        </div>
+    </div>
+
+    <p>bfc子元素边距未叠加</p>
+    <div style="background: #00ffff;margin-bottom: 10px;overflow: hidden">
+        <div style="background: #cccccc;margin-top: 15px;width: 25px;height: 25px;">
+
+        </div>
+    </div>
+    <p>元素自身的margin-bottom和margin-top相邻时也会折叠</p>
+    <div style="border:1px solid red; width:100px;">
+        <div style="margin-top:100px;margin-bottom:50px;"></div>
+    </div>
+</body>
+</html>
