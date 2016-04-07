@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css定位之position</title>
+    <style>
+        body{
+            height:800px;
+        }
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding:0
+        }
+        .menu{
+           text-align: center;
+        }
+        .menu button{
+            outline: none;
+            padding :20px;
+            text-align: center;
+            border:1px solid #D29E9E;
+            width:inherit;
+        }
+        .menu button:active{
+            background:#ddd;
+        }
+
+        .content{
+            width: 100%;
+            height:170px;
+            border:1px solid #D29E9E;
+            background-color:#E66E07
+        }
+        .demo-box{
+            width:400px;
+            padding:20px;
+            text-align: center;
+            background:darkseagreen
+        }
+        .demo-other{
+            padding:20px;
+            width:100px;
+            background:indianred;
+            border:1px solid #ffff00;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="demo-box">
+        正常文档流排布
+    </div>
+    <div class="demo-other">
+        块元素
+    </div>
+</div>
+<div class="content">
+    <div class="demo-box" style="position:relative;left:10px;top:10px;">
+        正常文档流排布
+        position:relative;<br/>
+        left:10px;<br/>
+        top:10px;
+    </div>
+    <div class="demo-other">
+        块元素
+    </div>
+</div>
+<div class="content" style="position:relative">
+    <div class="demo-box" style="position:absolute;right:10px;top:10px;">
+        脱离文档流
+        position:absolute;<br/>
+        right:10px;<br/>
+        top:10px;
+    </div>
+    <div class="demo-other">
+        块元素
+    </div>
+</div>
+<div class="content">
+    <div class="demo-box" style="position:fixed;bottom:40px;left:20%;">
+        脱离文档流
+        position:fixed;<br/>
+        bottom:40px;<br/>
+        left:20%;
+    </div>
+    <div class="demo-other">
+        块元素
+    </div>
+</div>
+</body>
+</html>
