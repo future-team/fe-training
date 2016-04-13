@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>如何设置事件处理程序</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        #root{
+            height: 1000px ;
+            width: 2000px;
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var div=document.getElementById('root');
+        div.addEventListener('click',function(e){
+            console.log('Client coordinates:' + e.clientX +',' + e.clientY);
+            console.log('Page coordinates:' + e.pageX +',' + e.pageY);
+            console.log('Screen coordinates:' + e.screenX +',' + e.screenY);
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>事件代理</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        div{
+            height: 1000px;
+            background: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+</div>
+</body>
+<script>
+    window.onload=function(){
+        function loadData(){
+            setTimeout(function(){
+                console.log('load success!');
+                document.addEventListener('scroll',scrollListener );
+                document.getElementById('container').style.height=
+                        (document.getElementById('container').clientHeight+1000)+'px';
+            },2000)
+        }
+        function scrollListener(event) {
+            if (document.body.scrollHeight ==
+                    document.body.scrollTop +
+                    window.innerHeight) {
+                document.removeEventListener('scroll',scrollListener );
+                console.log('bottom!');
+                loadData();
+            }
+        }
+        document.addEventListener('scroll',scrollListener );
+    }
+</script>
+</html>

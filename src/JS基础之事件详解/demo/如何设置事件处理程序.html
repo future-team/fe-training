@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>如何设置事件处理程序</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin: 20px;
+        }
+        .hint{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <span class="button" id="button1">
+        button1
+    </span>
+    <span class="button" onclick="alert('I am clicked')">
+        button2
+    </span>
+    <span class="button" id="button3">
+        button3
+    </span>
+    <span class="button" id="button4">
+        remove btn3 listener
+    </span>
+    <div id="hint1" class="hint">
+
+    </div>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var btn1=document.getElementById('button1');
+        btn1.onclick=function(){
+            alert('Whoops! I am clicked');
+        }
+        btn1.onmouseover=function(){
+            var hint1=document.getElementById('hint1');
+            hint1.innerHTML='I am in';
+        }
+        btn1.onmouseout=function(){
+            var hint1=document.getElementById('hint1');
+            hint1.innerHTML='';
+        }
+        function listener1(){
+            alert('listener 1');
+        }
+        var btn3=document.getElementById('button3');
+        btn3.addEventListener('click',listener1,false)
+        btn3.addEventListener('click',function(){
+            alert('listener 2');
+        },false)
+        var btn4=document.getElementById('button4');
+        btn4.addEventListener('click',function(){
+            btn3.removeEventListener('click',listener1,false);
+            alert('Remove listener1');
+        },false)
+    }
+</script>
+</html>

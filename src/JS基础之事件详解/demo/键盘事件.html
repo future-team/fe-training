@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>键盘事件</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        textarea{
+            margin: 30px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <textarea id="textarea">
+
+    </textarea>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var textarea=document.getElementById('textarea');
+        textarea.addEventListener('keydown',function(e){
+            console.log('keydown:'+ e.keyCode);
+        })
+        textarea.addEventListener('keyup',function(e){
+            console.log('keyup:'+ e.keyCode);
+        })
+        textarea.addEventListener('keypress',function(e){
+            console.log('keypress: keycode-'+ e.keyCode+' , charCode-'+ e.charCode);
+        })
+    }
+</script>
+</html>

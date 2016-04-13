@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>动态列表_事件代理</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin: 20px;
+        }
+        li{
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<span id="add-btn" class="button">
+    添加
+</span>
+<ul id="list">
+
+</ul>
+</body>
+<script>
+    window.onload=function(){
+        var listLength= 0;
+        var ul=document.getElementById('list');
+        var addBtn=document.getElementById('add-btn');
+        /*添加一行li*/
+        function initList(){
+            var li=document.createElement('li');
+            listIndex=++listLength;
+            li.innerHTML='I am li '+(listIndex);
+            li.className='li-'+listIndex;
+            return li;
+        }
+        //初始化ul，先添加4个元素
+        for(var index=0;index<4;index++){
+            ul.appendChild(initList());
+        }
+        //绑定添加按钮的事件
+        addBtn.addEventListener('click',function(){
+            ul.appendChild(initList());
+        });
+
+        function liClickHandler(e){
+            var listIndex=e.target.className.split('-')[1];
+            alert('list '+listIndex+' is clicked!');
+        }
+        //通过事件代理处理点击li发生的事件
+        ul.addEventListener('click',function(e){
+            if(e.target.matches('li')){
+                liClickHandler(e);
+            }
+        });
+    }
+</script>
+</html>
