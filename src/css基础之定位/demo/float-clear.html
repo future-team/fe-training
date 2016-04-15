@@ -14,15 +14,21 @@
             height:200px;
             background:#E66E07;
         }
+        .clear-fix:after{
+            content:'';
+            clear: both;
+            display: block;
+        }
     </style>
     <title>float效果示例</title>
 </head>
 <body>
 <div class='float-container'>
+    <div class="clear-fix">
     <div class='float-left'>
         float元素
     </div>
-    <div style="clear: both;"></div>
+        </div>
     <div class='float-sibling'>
         和float元素有共同父节点的元素
     </div>
