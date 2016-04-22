@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom基础</title>
+    <link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+<div class="main">
+    <div class="title">dom之节点层次</div>
+    <div class="block block1">
+        <div class="block-title">node节点关系示例</div>
+        <div class="block-content">
+            <div class="node-demo">
+                <div class="parentDiv">
+                    <div class="childA">a</div>
+                    <div class="childB">b</div>
+                </div>
+                <div class="next">总得有点字</div>
+            </div>
+            <div class="result">
+                <p>不同颜色显示</p>
+
+                <p>当前node：<label>红色</label></p>
+
+                <p>parentNode：<label>蓝色</label></p>
+
+                <p>childNodes：<label>绿色</label></p>
+
+                <p>previousSibling：<label>黄色</label></p>
+
+                <p>nextSibling：<label>粉色</label></p>
+            </div>
+        </div>
+    </div>
+    <div class="block block2">
+        <div class="block-title">node基本操作之增删改查</div>
+        <div class="block-content">
+            <div class="doPDiv">
+                <div class="childPA">原有子区域</div>
+            </div>
+            <div class="childPB" id="childPB">待插入区域</div>
+            <div>
+                <a href="#" data-num='2_1'>增加之appendChild()</a>
+                <a href="#" data-num='2_2'>插入之insertBefore</a>
+                <a href="#" data-num='2_3'>替换之replaceChild</a>
+                <a href="#" data-num='2_4'>删除之removeChild</a>
+                <a href="#" data-num='2_5'>克隆之cloneNode</a></div
+        </div>
+    </div>
+    <div class="block block3">
+        <div class="block-title">偏移量计算</div>
+        <div class="block-content">
+            <div id="divParent" style="padding: 8px; background-color: #aaa; position: relative;">
+                <div id="offsetDiv">
+                </div>
+            </div>
+            <a href="#" data-num='3_1'>偏移量及相关属性</a>
+        </div>
+    </div>
+    <div class="block block4">
+        <div class="block-title">write动态写入外部js文件</div>
+        <div class="block-content">
+            <a href="#" data-num='4_1'>动态载入不存在js文件</a>
+        </div>
+    </div>
+    <div class="block block5">
+        <div class="block-title">getAttribute不同的情况</div>
+        <div class="block-content">
+            <div class="attr" id="attr" style="color: red;"> 测试getAttribute()方法</div>
+            <a href="#" data-num='5_1'>获取div id</a>
+            <a href="#" data-num='5_2'>获取颜色</a>
+            <div> 元素子节点的数目</div>
+            <ul class="nodsNum1">
+                <li>a</li>
+                <li>a</li>
+                <li>a</li>
+            </ul>
+            <a href="#" data-num='5_3'>ul1的字节点数目</a>
+            <ul class="nodsNum2"><li>a</li><li>a</li><li>a</li></ul>
+            <a href="#" data-num='5_4'>ul2的字节点数目</a>
+            <div class="attrs" style="color: red;"> text的操作方法</div>
+            <a href="#" data-num='5_5'>分割文本节点</a>
+            <a href="#" data-num='5_6'>合并文本节点</a>
+    </div>
+    <div class="block block6">
+        <div class="block-title">动态加载脚本</div>
+        <div class="block-content">
+            <a href="#" data-num='6_1'>引入源文件形式</a>
+            <a href="#" data-num='6_2'>直接创建代码块</a>
+        </div>
+        <div class="block-title">classList</div>
+        <div class="block-content">
+            <div class="a d c ds as aa"></div>
+            <a href="#" data-num='6_3'>增加类名in</a>
+            <a href="#" data-num='6_4'>去掉类名in</a>
+        </div>
+    </div>
+    <div class="title">遍历</div>
+    <div class="block block1">
+        <div class="block-title">1，新开窗口</div>
+        <div class="block-content">
+            <div class="iter">待遍历元素
+                <div style="color: red">子div</div>
+            </div>
+            <a href="#" data-num='6_5'>遍历上述div</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="../js/dom_index.js" type="text/javascript"></script>
+</body>
+</html>

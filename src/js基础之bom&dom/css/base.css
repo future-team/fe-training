@@ -1,0 +1,113 @@
+.title {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+}
+
+.block {
+    margin: 20px 10px;
+    padding: 20px;
+    border: 1px solid green;
+}
+
+.block .block-title {
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+    width: 200px;
+}
+
+.block-content {
+    padding: 10px 0;
+}
+
+.block-content a, .open-win {
+    display: inline-block;
+    cursor: pointer;
+    margin: 5px;
+    color: #fff;
+    text-decoration: none;
+    background: #ff6633;
+    border-bottom: #ff6633 1px solid;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.tips {
+    display: none;
+    background: #fef3f0;
+    border: #f07241 1px solid;
+    color: #f07241;
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+
+input#url {
+    width: 200px;
+    height: 25px;
+    padding: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    height: 30px;
+    background: #f5f5f5;
+    width: 300px;
+    margin: 3px;
+}
+
+ul li a {
+    padding: 5px;
+    display: inline-block;
+    text-decoration: none;
+    color: #666;
+}
+
+ul li a.active {
+    color: red;
+}
+
+.parentDiv, .doPDiv {
+    width: 300px;
+    height: 150px;
+    border: 1px solid red;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.doPDiv {
+    display: inline-block;
+}
+
+.childA, .childB, .childPA, .childPB {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid blue;
+    padding: 10px;
+}
+
+.childPB {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid green;
+}
+
+.result {
+    display: inline-block;
+}
+
+#offsetDiv {
+    background-color: #0ff;
+    margin: 30px;
+    padding: 10px;
+    height: 200px;
+    width: 200px;
+    border: solid 3px #f00;
+}
