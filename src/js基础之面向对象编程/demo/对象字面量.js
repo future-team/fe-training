@@ -3,7 +3,6 @@
  */
 
 var assert = require('assert');
-var colors= require('colors');
 /**
  * |
  * |对象是无类型的class-free,对新属性名字和值没有限制
@@ -13,7 +12,6 @@ var colors= require('colors');
  * |-对象可以嵌套
  *
  */
-
 var p={
     a:1,
     'b-b':[
@@ -25,14 +23,16 @@ var p={
         }
     },
     '':function(){
-        console.log('function calling'['green'])
+        console.log('function calling')
     },
     c:function(){
-        console.log('now the object is'.green+JSON.stringify(this));
+        //方法调用,this绑定到该对象(very late binding)
+        console.log('now the object is',JSON.stringify(this));
     }
 };
 assert( typeof p==='object' );
-p['']();
+
+p['']();//function calling
 
 /**
  * |对象引用
@@ -47,4 +47,4 @@ q.hello='world';
 
 assert( p===q );
 
-p.c();   //{ a: 1, c: [Function], hello: 'world' }
+p.c();   //{"a":1,"b-b":[1,2,3],"d":{"p1":{"a1":11}},"hello":"world"}
