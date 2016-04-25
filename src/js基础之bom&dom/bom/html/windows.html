@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js基础之bom_window对象</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+</head>
+<body>
+<div class="main">
+    <div class="title">bom之window对象相关</div>
+    <div class="block block1">
+        <div class="block-title">全局作用域</div>
+        <div class="block-content">
+            <div>1,所有变量和方法都会成为window的属性和方法.
+                例如 声明变量 block_a＝ ‘1’，查看：
+            </div>
+            <a href="#" data-num='1_1'>直接查看 a</a>
+            <a href="#" data-num='1_2'>通过window.a查看</a>
+
+            <div>2,是否可以通过delete删除
+                同样 增加window.block_a＝ ‘2’，查看delete：
+            </div>
+            <a href="#" data-num='1_3'>直接删除 we</a>
+            <a href="#" data-num='1_4'>删除 window.block_b</a>
+
+            <div>3,确定变量是否声明,console台</div>
+        </div>
+    </div>
+    <div class="block block2">
+        <div class="block-title">窗口关系及框架</div>
+        <div class="block-content">
+            <a href="./framesets/frameset.html">框架页面</a>
+        </div>
+    </div>
+    <div class="block block3">
+        <div class="block-title">窗口位置及大小</div>
+        <div class="block-content">
+            <div>1,改变窗口大小为300，400和调整到与原来差300，400</div>
+            <a href="#" data-num='2_1'>调整到300，400 </a>
+            <a href="#" data-num='2_2'>与原来差300，400</a>
+
+            <div>2,窗口移动到100，100和窗口移动100，100</div>
+            <a href="#" data-num='2_3'>移动到100，100</a>
+            <a href="#" data-num='2_4'>移动100，100</a>
+        </div>
+    </div>
+    <div class="block block4">
+        <div class="block-title">导航和打开窗口</div>
+        <div class="block-content">
+            <div>window.open()既可以导航到特定的url，也可以打开新的窗口，由参数确定(理想中情况，通过用户点击事件触发)</div>
+            <a href="#" data-num='3_1'>当前窗口 </a>
+            <a href="#" data-num='3_2'>新开窗口</a>
+
+            <div>2.回到现实，当js中直接调用时，例如等待ajax请求成功后，被阻止</div>
+            <div class="open-win" data-num='3_3'>直接使用window.open</div>
+            <div class="open-win" data-num='3_4'>使用重定向方法来解决</div>
+        </div>
+    </div>
+    <div class="block block5">
+        <div class="block-title">间歇调用和超时调用</div>
+        <div class="block-content">
+            <div> 1，超时调用：setTimeOUt</div>
+            <a href="#" data-num='4_1'>延迟100ms执行</a>
+            <a href="#" data-num='4_2'>清除超时调用，clearTimeout()</a>
+
+            <div>2,间歇调用</div>
+            <a href="#"  data-num='4_3'>间隔100ms执行</a>
+            <a href="#"  data-num='4_4'>清除间歇调用，clearInterval()</a>
+        </div>
+    </div>
+    <div class="block block6">
+        <div class="block-title">系统弹出框</div>
+        <div class="block-content">
+            <a href="#" data-num='5_1'>alert</a>
+            <a href="#" data-num='5_2'>confirm</a>
+            <a href="#" data-num='5_3'>prompt</a>
+        </div>
+    </div>
+    <div class="title">常见的使用场景</div>
+    <div class="block block1">
+        <div class="block-title">1，新开窗口</div>
+        <div class="block-content">
+            <div>1,直接通过click事件新开窗口，是可以的
+            </div>
+            <a href="#" data-num='3_2'>click事件直接打开窗口</a>
+            <div>2.回到现实，当js中直接调用时，例如等待ajax请求成功后，被阻止</div>
+            <div class="open-win" data-num='3_3'>直接使用window.open</div>
+            <div class="open-win" data-num='3_4'>使用重定向方法来解决</div>
+        </div>
+        <div class="block-title">超时调用和间歇调用</div>
+        <div class="block-content">
+            <div>1,提示n秒后消失
+            </div>
+            <a href="#" data-num='6_1'>点击显示提示，3秒后消失</a><span class="tips tip-1">我只是一个提示</span>
+            <div>2,n秒消失并计时
+            </div>
+            <a href="#" data-num='6_2'>点击显示提示，3秒后消失</a><span class="tips tip-2">我只是一个提示</span>
+        </div>
+    </div>
+</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="../js/windows.js" type="text/javascript"></script>
+</body>
+</html>
