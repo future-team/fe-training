@@ -1,6 +1,11 @@
 /**
  * Created by slashhuang on 16/4/25.
+ * js中的内置对象
  */
+
+
+
+
 var assert = require('assert');
 /**
  * ====== JS中的内置对象,方法不可变=======
@@ -21,7 +26,7 @@ console.log(Math.round(2.3));
  * Number对象
  * ====> 处理数据展示
  */
-var q= 1;  //等价于====> var p = new Number(1);
+var q= 1;  //等价于====> var q = new Number(1);
 console.log(q.toFixed(2));
 
 /**
