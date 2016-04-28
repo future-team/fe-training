@@ -1,0 +1,39 @@
+@import "../common/variables";
+.user{
+  background: #fff;
+  cursor:pointer;
+  &:nth-of-type(2n+1){
+    background: #ddffdd;
+    &.active{
+      background: #33acfe;
+    }
+  }
+  &:last-child{
+    border-bottom: 1px solid #ddd;
+  }
+  &.active{
+    background: #33acfe;
+  }
+  height: @user-li-height;
+  img{
+    width: @user-li-height - 2 * @user-li-padding;
+    height: @user-li-height - 2 * @user-li-padding;
+    margin-top: @user-li-padding;
+    margin-left: @user-li-padding;
+    float: left;
+  }
+  .user-content{
+    float: left;
+    margin-top: @user-li-padding;
+    margin-left: @user-li-padding;
+    .msg{
+      margin-top: 6px;
+      font-size: 13px;
+      display: inline-block;
+      width: 160px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}

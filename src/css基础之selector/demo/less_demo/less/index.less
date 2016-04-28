@@ -1,0 +1,29 @@
+@import "chat-room";
+.title{
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0px 15px 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#demo1 {
+  color: @light-blue;
+}
+
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+#header {
+  .border-radius;
+}
+#header {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

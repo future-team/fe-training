@@ -1,0 +1,24 @@
+@import './common/variables';
+@import './common/base.less';
+@import './components/chat-card';
+@import './components/user';
+.chat-room{
+  height: 300px;
+  border: 1px solid @divide-line-color;
+  width: 900px;
+  margin: 10px auto;
+  position: relative;
+  .user-list{
+    position: absolute;
+    width: @user-list-width;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid @divide-line-color;
+    overflow: scroll;
+  }
+  .chat-list{
+    margin-left: @user-list-width;
+    width: 650px;
+    height: 100%;
+  }
+}

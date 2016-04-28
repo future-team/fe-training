@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>xx-child与xx-of-type</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        ul li:last-of-type{
+            color: red;
+        }
+        ul li:first-child{
+            color: green;
+        }
+        ul *:last-child{
+            color: blue;
+        }
+        /*ul *:nth-child(2n+1){
+            color: aqua !important;
+        }
+        ul *:nth-child(2n){
+            color: fuchsia !important;
+        }*/
+        ul div:first-of-type{
+            color: orange;
+        }
+
+        ul{
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 20px;
+        }
+        ul li:only-child{
+            color: purple;
+        }
+        ul *:only-of-type{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li>ul li:first-child 或 ul *:nth-child(2n+1) </li>
+        <li>li:nth-child(2n) </li>
+        <li>ul li:last-of-type 或 ul li:nth-child(2n+1) </li>
+        <div>ul div:first-of-type 或 ul *:last-child 或 ul *:nth-child(2n)</div>
+    </ul>
+    <div>
+        <ul>
+            <li>
+                I am only Child
+            </li>
+        </ul>
+        <ul>
+            <li>
+                I am not the only Child
+            </li>
+            <li>
+                I am not the only Child
+            </li>
+            <div>
+                div,not the only Child,but the only Type
+            </div>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>
