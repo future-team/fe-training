@@ -1,0 +1,21 @@
+{
+  "name": "less_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "less"
+  ],
+  "author": "anbo",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0"
+  }
+}
