@@ -1,9 +1,11 @@
 /**
  * Created by slashhuang on 16/4/27.
+ * 闭包
  */
 
 /**====topic1=====
- * 通过闭包访问
+ * | 实现形式
+ * |- 构造函数作用域嵌套
  */
 var app=function(){
 

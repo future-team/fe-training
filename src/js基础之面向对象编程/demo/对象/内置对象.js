@@ -8,7 +8,7 @@
 
 var assert = require('assert');
 /**
- * ====== JS中的内置对象,方法不可变=======
+ * ====== JS中的内置对象能够在全局范围进行调用，又名曰全局对象（global objects）======
  *
  */
 
@@ -59,8 +59,8 @@ console.log(jsonToObj);
  * 正则表达式
  * ===>  匹配一系列符合某个句法规则的字符串
  */
-var regExpEg= new RegExp(/\d/g);
-assert(true == regExpEg.test(1234))
+var regExpEg= new RegExp(/\d*/g);
+assert(true == regExpEg.test(1234));
 
 
 

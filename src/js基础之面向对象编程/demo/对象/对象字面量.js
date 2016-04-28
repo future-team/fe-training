@@ -1,5 +1,6 @@
 /**
  * Created by slashhuang on 16/4/25.
+ * 对象字面量
  */
 
 var assert = require('assert');

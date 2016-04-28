@@ -25,7 +25,7 @@ var assert=null;
 (function(){
     /**
      * |创建类(函数)
-     * |-
+     * |- 实例化时，构造函数(constructor)与类同名
      */
     var _class = function(args){
         //配置实例属性
@@ -121,5 +121,5 @@ var assert=null;
     };
     var child_instance= Object.create(father_instance);
     child_instance.child='child';
-    console.log(child_instance);
+    console.log(child_instance.a);
 }());
