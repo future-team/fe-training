@@ -3,7 +3,7 @@
  */
 
 /**========question1=======
- * | 闭包使用
+ * | 类 实例的基本使用
  *
  *
  * |-题目描述
@@ -25,7 +25,7 @@
  *
  创建一个类_class使得它的实例拥有如下特征
 
- var _instance = new _class(arguments);
+ var _instance = new _class();
  _instance.addString('hello world').removeAll('world') --->"hello "
  *  
  **/
