@@ -22,7 +22,7 @@ console.log("=======",p);
  */
 
 function hello(){
-    var q='i"m in a function now ';
+    var q='i\'m q';
     return function(){
         console.log("由于闭包，我可以在hello函数执行后，继续保持对q的访问====> ",q);
     }
