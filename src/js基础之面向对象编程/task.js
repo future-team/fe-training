@@ -26,7 +26,7 @@
  创建一个类_class使得它的实例拥有如下特征
 
  var _instance = new _class();
- _instance.addString('hello world').removeAll('world') --->"hello "
+ _instance.addString('hello world world').removeAll('world') --->"hello  "
  *  
  **/
 

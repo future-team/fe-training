@@ -49,11 +49,11 @@ _class.prototype.addString=function(str){
     return this;
 };
 _class.prototype.removeAll=function(str){
-    this.targetString = this.targetString.replace(str,'');
+    this.targetString = this.targetString.replace(new RegExp(str,'g'),'');
     return this.targetString
 };
 var _instance = new _class();
-console.log(_instance.addString('hello world').removeAll('world'));
+console.log(_instance.addString('hello world world').removeAll('world'));
 
 /**========question3=======
  * | 类 + 继承 + 原型
