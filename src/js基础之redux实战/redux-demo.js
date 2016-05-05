@@ -64,10 +64,11 @@ var contentNode = document.getElementById('contents');
 /**
  * 注册事件进redux(react也是按照同样的原理进行代理的)
  */
-var addSubscribe= function(){
+var addSubscribe= function(action){
+    console.log(action);
     var stateNow = store.getState();
     var li = document.createElement('li');
-    li.innerHTML=JSON.stringify(stateNow);
+    li.innerHTML= "执行action:"+JSON.stringify(action)+"\n结果为:"+JSON.stringify(stateNow);
     contentNode.appendChild(li);
 };
 store.subscribe(addSubscribe)

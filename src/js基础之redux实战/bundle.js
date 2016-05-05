@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "93c21e5e9e4e114e3846"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c4417330210b24c938c2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -587,7 +587,7 @@
 
 	/**
 	 * Created by slashhuang on 16/5/4.
-	 * 简单版的双向绑定实现
+	 * 纯粹的redux数据管理方案
 	 */
 
 	/**
@@ -648,10 +648,11 @@
 	/**
 	 * 注册事件进redux(react也是按照同样的原理进行代理的)
 	 */
-	var addSubscribe = function addSubscribe() {
+	var addSubscribe = function addSubscribe(action) {
+	    console.log(action);
 	    var stateNow = store.getState();
 	    var li = document.createElement('li');
-	    li.innerHTML = JSON.stringify(stateNow);
+	    li.innerHTML = "执行action:" + JSON.stringify(action) + "\n结果为:" + JSON.stringify(stateNow);
 	    contentNode.appendChild(li);
 	};
 	store.subscribe(addSubscribe);
@@ -1019,7 +1020,7 @@
 
 	    var listeners = currentListeners = nextListeners;
 	    for (var i = 0; i < listeners.length; i++) {
-	      listeners[i]();
+	      listeners[i](action);
 	    }
 
 	    return action;
