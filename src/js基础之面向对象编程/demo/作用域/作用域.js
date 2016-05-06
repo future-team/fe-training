@@ -33,5 +33,5 @@ try{
 }catch(e){
     console.log("error happened,because q is not defined")
 }
-//闭包访问上下文变量成功
+//但是通过JS的函数闭包机制，成功访问了上下文变量q
 hello()();

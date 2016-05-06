@@ -23,6 +23,7 @@ var assert=null;
  */
 var app={ //全局命名空间
     init:function(){
+       this.bindEvents();
     },
     bindEvents:function(){
     },
