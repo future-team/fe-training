@@ -13,23 +13,16 @@ var app=function(){
     /**
      * 通过返回函数,创建闭包
      */
-   return {
-       increment:function(val){
+   return function(val){
            var incValue = val?val:1;
            num+=incValue;
-           console.log('给num增加',incValue)
-
-       },
-       _get:function(){
-          return num;
+           console.log('给num增加',incValue,"\nnum is now",num)
        }
-   }
 };
 /**
  * app执行结束，内部函数依旧可以保持对app内的变量访问权
  */
 var Api = app();
-Api.increment();
-Api.increment(2);
-Api.increment(2);
-console.log('闭包变量num现在为:',Api._get());
+Api();
+Api(2);
+Api(2);

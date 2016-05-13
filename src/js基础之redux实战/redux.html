@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery和redux的结合</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-size: 18px;
+            padding:0;
+            margin:0;
+        }
+        #contents{
+            padding:20px;
+            background-color: #43f3dd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        li{padding:10px;}
+        nav{
+            border-bottom:1px solid #0086b3;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            padding:20px;
+            background-color: #b5aff3;
+        }
+        .buttons{
+            padding-top:20px;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            padding:10px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    展示区
+</nav>
+<ul id="contents">
+    <li>一开始什么都没有</li>
+</ul>
+<div class="buttons">
+    <button style="margin-right:20px;" id="init">redux初始化的数据</button>
+    <button style="margin-right:20px;" id="action1">执行action1</button>
+    <button id="action2">执行action2</button>
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>

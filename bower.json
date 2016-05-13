@@ -1,0 +1,29 @@
+{
+  "name": "fe-training",
+  "description": "fe training",
+  "main": "index.js",
+  "authors": [
+    "future-team"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "training",
+    "fe",
+    "js",
+    "css"
+  ],
+  "homepage": "https://github.com/future-team/fe-training",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.3",
+    "angular": "~1.5.5",
+    "rivets": "~0.8.1"
+  }
+}

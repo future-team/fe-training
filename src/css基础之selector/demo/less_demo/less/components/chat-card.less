@@ -1,0 +1,51 @@
+@import "../common/variables";
+.chat-card{
+  .chat-content{
+    background: @chat-card-left-bgcolor;
+    color: @chat-card-left-color;
+    border-radius: 5px;
+    display: inline-block;
+    min-width: 100px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    position: relative;
+    margin-left: 25px;
+    max-width: 300px;
+    a[href*=dianping]{
+      color:#fff;
+      text-decoration: none;
+    }
+  }
+
+  .triangle(){
+    content: '';
+    display: inline-block;
+    border-width: 8px;
+    position: absolute;
+    top: 10px;
+    border-style: solid;
+  }
+  &.left{
+    .chat-content{
+      float: left;
+      &::before{
+        .triangle;
+        left: -15px;
+        border-color: transparent @chat-card-left-bgcolor transparent transparent;
+      }
+    }
+  }
+  &.right{
+    .chat-content{
+      float: right;
+      margin-right: 25px;
+      background: @chat-card-right-bgcolor;
+      color: @chat-card-right-color;
+      &:after{
+        .triangle;
+        right: -15px;
+        border-color: transparent transparent transparent @chat-card-right-bgcolor;
+      }
+    }
+  }
+}

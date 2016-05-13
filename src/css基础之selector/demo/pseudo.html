@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>pseudo</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        .card{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        .card .content{
+            width: 100%;
+            height: 175px;
+        }
+        .card .footer{
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            box-sizing: border-box;
+            padding-left: 10px;
+        }
+        .price-yuan::before{
+            content:'¥'
+        }
+        .price-dollar::before{
+            content:'$'
+        }
+
+        /*气泡框*/
+        .bubble{
+            background: #333;
+            color: #fff;
+            border-radius: 3px;
+            display: inline-block;
+            min-width: 100px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            position: relative;
+            margin-left: 50px;
+        }
+        .bubble-left::before{
+            content: '';
+            display: inline-block;
+            border-width: 8px;
+            position: absolute;
+            left: -15px;
+            top: 7px;
+            border-color: transparent #333 transparent transparent;
+            border-style: solid;
+        }
+        .bubble-right{
+            float: right;
+            margin-right: 50px;
+            background: #ffe400;
+            color: #333;
+        }
+        .bubble-right::after{
+            content: '';
+            display: inline-block;
+            border-width: 8px;
+            position: absolute;
+            right: -15px;
+            top: 7px;
+            border-color: transparent transparent transparent #ffe400;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="card">
+        <div class="content">
+
+        </div>
+        <div class="footer">
+            <span class="price-yuan">60</span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+
+        </div>
+        <div class="footer">
+            <span class="price-dollar">10</span>
+        </div>
+    </div>
+
+    <div class="bubble bubble-left">
+        这是一个气泡框
+    </div>
+    <div class="bubble bubble-right">
+        这是一个回复的气泡框
+        <br />
+        哦！
+    </div>
+</div>
+</body>
+
+</html>

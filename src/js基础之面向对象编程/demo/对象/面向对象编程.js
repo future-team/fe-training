@@ -17,6 +17,21 @@ var assert=null;
         assert = require('assert');
     }}(this));
 //========================  进入正题  ==============================
+/**
+ *  ===topic0===
+ * 命名空间 namespace
+ */
+var app={ //全局命名空间
+    init:function(){
+       this.bindEvents();
+    },
+    bindEvents:function(){
+    },
+    constants:{//子命名空间
+        a:1,
+        b:2
+    }
+};
 
 /**
  * ===topic1===
@@ -45,6 +60,7 @@ var assert=null;
 //判断是否是_class的实例
     assert(_instance1 instanceof _class);
     assert(_instance2 instanceof _class);
+    assert(_instance2.constructor === _class);
 }());
 
 /**
@@ -70,6 +86,7 @@ var assert=null;
     var _instance1 = new _class();
     var _instance2 = new _class();
     _instance1._inherit();
+
     //同一个类的实例所继承的方法/属性来自同一个模板对象(prototype)
     assert(_instance1._inherit === _instance2._inherit);
     assert(_instance2._inherit === _instance1.__proto__._inherit);
