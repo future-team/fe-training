@@ -14,6 +14,15 @@
  sequence1.next() --> return 1;
  sequence1.next() --> return 2;
  **/
+var Sequence=function(){
+    this.a=0;
+    this.next=function(){
+       this.a=this.a+1;
+        return this.a
+    };
+};
+var sequence1 = new Sequence();
+
 
 
 
@@ -29,6 +38,18 @@
  _instance.addString('hello world world').removeAll('world') --->"hello  "
  *  
  **/
+var _class=function(){
+    this.target='';
+    this.addString=function(s){
+        this.target =s ;
+        return this;
+    };
+    this.removeAll=function(){
+       this.target.replace(/world/g,'');
+    }
+};
+var _instance = new _class();
+
 
 
 
@@ -55,8 +76,15 @@
  _class2Instance.a -----> "_a"
  *
  **/
+var _class1=function(){
+    this.a='a';
+    this.b='b';
+}
+var _class2=function(){
+    this.c='c';
+    this.d='d';
+}
+_class2.prototype =new _class1();//类2继承类1
+var _class2Instance = new _class2();
 
-
-
-
-
+_class2Instance.__proto__.a='_a'

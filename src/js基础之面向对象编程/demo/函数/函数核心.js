@@ -13,7 +13,8 @@ var hello= function(){
     console.log(this);//this指向本函数创建的全局上下文
     console.log(arguments);//函数的参数`对象数组`
 };
-hello(1,2);
+//hello(1,2);
+
 
 /**
  * === 再看this ===
@@ -36,7 +37,7 @@ var app={
         console.log("bindEvents");
     }
 };
-//app.init(); @TODO
+//app.init(); //@TODO
 
 
 
@@ -62,19 +63,22 @@ var _class = function(){
 };
 _class.prototype.c="c";
 var instance1 = new _class();//return this
-//console.log(instance1); //@TODO
-//console.log(instance1.c);//return this
+console.log(instance1); //@TODO
+console.log(instance1.c);//return this
 
 /**======= 场景4======
  * apply调用模式
  * 创建参数数组
  * 自定义this
+ * 第一个参数this
+ * 第二个参数就是arguments
  */
 var _apply = function(){
    console.log(this);
    console.log(JSON.stringify(arguments));
 };
-//_apply.apply({hello:'world'},[1,2]);
+_apply.apply({hello:'world'},[1,2]);
+//_apply(1,2);
 
 
 

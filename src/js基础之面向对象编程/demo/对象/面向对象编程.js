@@ -73,15 +73,24 @@ var app={ //全局命名空间
      */
     var _class=function(){
         this._class_property = '_class_property';
+        this.ii=function(){//private
+            "use strict";
+
+        }
     };
     /**
      * |  利用原型创建模板对象
      * |- 所有类的实例共享模板对象的属性、方法
      * |- 节约内存
      */
-    _class.prototype._inherit = function(){
-        //通常，this值的绑定发生在调用时(very late binding)
-        console.log('using prototype  === ',this._class_property);
+    _class.prototype={
+        _inherit:function(){
+            //通常，this值的绑定发生在调用时(very late binding)
+            console.dir(this._class_property);
+
+            console.log('using prototype  === ',this._class_property);
+        },
+        _class_property:"other"
     };
     var _instance1 = new _class();
     var _instance2 = new _class();
@@ -105,26 +114,30 @@ var app={ //全局命名空间
     };
     var _class_child=function(){
         this.child='child';
-        _class_father.call(this);
     };
-    //通过原型链,手动实现js中的继承
-    Function.prototype.inherit_from=function(father){
-        if(typeof father=='function'){
-            //将子类构造函数的prototype替换为为父类的实例
-            //将父类原型及实例属性、方法挂载至子类的原型链中
-            this.prototype=new father();
-        }else{
-            throw TypeError('please use function as father class')
-        }
-    };
-    //子类继承自父类
-    _class_child.inherit_from(_class_father);
+    //_class_child.prototype={a:1}
+        _class_child.prototype= new _class_father();//
+    var _instance = new _class_child();
+    console.log(_instance.father)
 
-    var childInstance = new _class_child();
-    console.log(childInstance.fatherFunc());
-    console.log(childInstance.father);
-    assert(childInstance instanceof _class_child);
-    assert(childInstance instanceof _class_father)
+    ////通过原型链,手动实现js中的继承
+    //Function.prototype.inherit_from=function(father){
+    //    if(typeof father=='function'){
+    //        //将子类构造函数的prototype替换为为父类的实例
+    //        //将父类原型及实例属性、方法挂载至子类的原型链中
+    //        this.prototype=new father();
+    //    }else{
+    //        throw TypeError('please use function as father class')
+    //    }
+    //};
+    //子类继承自父类
+    //_class_child.inherit_from(_class_father);
+    //
+    //var childInstance = new _class_child();
+    //console.log(childInstance.fatherFunc());
+    //console.log(childInstance.father);
+    //assert(childInstance instanceof _class_child);
+    //assert(childInstance instanceof _class_father)
 }());
 
 /**

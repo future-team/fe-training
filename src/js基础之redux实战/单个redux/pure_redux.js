@@ -1,15 +1,14 @@
 /**
- * Created by slashhuang on 16/5/4.、
- * 多个reducer的redux实现
+ * Created by slashhuang on 16/5/4.
+ * 纯粹的redux数据管理方案
+ *
  */
 
 
 /**
  * 引入redux的接口
  */
-var redux = require('redux');
-var createStore= redux['createStore'];
-var combineReducers =  redux['combineReducers'];
+import {createStore,combineReducers} from 'redux';
 
 /**
  * 创建store的增删改查
@@ -46,19 +45,33 @@ var reducer2=function(state,action){
  */
 var store = createStore(combineReducers(
     {
-        reducer1:reducer1,//命名空间
-        reducer2:reducer2
+        reducer1,
+        reducer2,
     }
 ),{});
+
 /**
- * 调用store的getState(getter)获取当前的数据状态
+ * dom节点用于展示
  */
-console.log(store.getState());
+var contentNode = document.getElementById('contents');
 
-
+/**
+ * 注册事件进redux(react也是按照同样的原理进行代理的)
+ */
+var addSubscribe= function(action){
+    console.log(action);
+    var stateNow = store.getState();
+    var li = document.createElement('li');
+    li.innerHTML= "执行action:"+JSON.stringify(action)+"\n结果为:"+JSON.stringify(stateNow);
+    contentNode.appendChild(li);
+};
+store.subscribe(addSubscribe)
 /**
  * 添加执行动作，具体化数据管理的操作
  */
+var action = {
+    type:'@@redux/INIT'
+};
 var action1={
     type:'reducer1'
 };
@@ -68,10 +81,11 @@ var action2={
 /**
  * 调用store的dispatch接口，分发动作到reducer(进行增删改查)
  */
-store.dispatch(action1);
-console.log(store.getState());
-store.dispatch(action2);
-console.log(store.getState());
+
+document.getElementById("init").addEventListener('click',()=>{store.dispatch(action);});
+document.getElementById("action1").addEventListener('click',()=>{store.dispatch(action1);});
+document.getElementById("action2").addEventListener('click',()=>{store.dispatch(action2);});
+
 
 
 

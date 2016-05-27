@@ -9,7 +9,8 @@
  * 测试函数声明与表达式的区别
  */
 hello();//函数提升
-world();//throw TypeError
+//console.log(world)
+//world();//throw TypeError
 
 /**
  * === 细节讲解 ===
@@ -21,6 +22,9 @@ world();//throw TypeError
 function hello(){
    console.log('hello');
 }
+
+var hello="world";
+console.log(hello);
 /**
  * 函数表达式
  * |-js引擎执行初始化过程:

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>jquery和redux的结合</title>
+    <title>纯redux的解决方案</title>
     <style>
         *{
             box-sizing: border-box;
@@ -36,6 +36,9 @@
             padding:10px;
             cursor:pointer;
         }
+        #init,#action1{
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,10 +49,10 @@
     <li>一开始什么都没有</li>
 </ul>
 <div class="buttons">
-    <button style="margin-right:20px;" id="init">redux初始化的数据</button>
-    <button style="margin-right:20px;" id="action1">执行action1</button>
+    <button id="init">redux初始化的数据</button>
+    <button  id="action1">执行action1</button>
     <button id="action2">执行action2</button>
 </div>
-<script src="bundle.js"></script>
+<script src="/static/pure_redux.js"></script>
 </body>
 </html>
