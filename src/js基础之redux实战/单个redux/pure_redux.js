@@ -57,6 +57,7 @@ var contentNode = document.getElementById('contents');
 
 /**
  * 注册事件进redux(react也是按照同样的原理进行代理的)
+ * 这里修改了redux源码，更好演示redux的使用方式
  */
 var addSubscribe= function(action){
     console.log(action);
