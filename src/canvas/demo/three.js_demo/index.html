@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100%; margin: 0 auto;
+  display: block;}
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(
+                75, window.innerWidth/window.innerHeight, 0.1, 1000);
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth*0.8, window.innerHeight*0.8);
+            document.body.appendChild(renderer.domElement);
+
+            // create cube mesh 
+            var cubeGeo = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+            var cubeMat = new THREE.MeshLambertMaterial(
+                {color: 0xffffff});
+            var cube = new THREE.Mesh(cubeGeo, cubeMat);
+            cube.position.x = -3;
+
+            //create sphere mesh
+            var sphereGeo = new THREE.SphereGeometry(1, 30, 30);
+            var sphereMat = new THREE.MeshStandardMaterial(
+                {color: 0xffffff});
+            var sphere = new THREE.Mesh(sphereGeo, sphereMat);
+
+            //create torus mesh
+            var torusGeo = new THREE.TorusGeometry(0.85, 0.3, 20, 40);
+            var torusMat = new THREE.MeshStandardMaterial(
+                {color: 0xffffff, shading: THREE.FlatShading});
+            var torus = new THREE.Mesh(torusGeo, torusMat);
+            torus.position.x = 3;
+
+            var light1 = new THREE.DirectionalLight(0x00ffff, 1.0);
+            light1.position.set(-1, 1, 2);
+            light1.lookAt(0, 0, 0);
+
+            var light2 = new THREE.DirectionalLight(0xffff00, 0.7);
+            light2.position.set(1, -1, -1);
+            light2.lookAt(0, 0, 0);
+
+            scene.add(cube);
+            scene.add(sphere);
+            scene.add(torus);
+            scene.add(light1);
+            scene.add(light2);
+            camera.position.set(0, 0, 4);
+
+            function render() {
+                requestAnimationFrame(render);
+
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                sphere.rotation.x -= 0.01;
+                sphere.rotation.y -= 0.01;
+                torus.rotation.y += 0.01;
+                torus.rotation.z += 0.01;
+
+                renderer.render(scene, camera);
+            }
+            render();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800">
+
+</canvas>
+</body>
+<script>
+    var canvas=document.getElementById('myCanvas');
+    var context=canvas.getContext('2d');
+    context.fillRect(20,20,100,100);
+    //context.lineWidth=10;
+    context.strokeRect(130,130,100,100);
+
+    //context.strokeStyle='red';
+    context.beginPath();
+    context.moveTo(250,250);
+    context.lineTo(250,500);
+    context.lineTo(50,500);
+    context.closePath();
+    context.stroke();
+
+    context.beginPath();
+    context.arc(500,100,100,Math.PI/2,Math.PI,true);
+    context.stroke();
+    context.beginPath();
+    context.arc(500,100,100,Math.PI/2,Math.PI,false);
+    context.fill();
+
+    var text='Hello World!';
+    context.font='italic 30px serif';
+    context.fillText(text,400,250)
+
+
+    context.beginPath();
+    context.arc(500,400,100,0,Math.PI*2,true);
+    context.fill();
+    context.clearRect(450,350,100,100);
+</script>
+</html>

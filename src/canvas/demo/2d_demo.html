@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div align="center">
+<canvas id="myCanvas" width="600" height="400" align="center"></canvas>
+</div>
+</body>
+<script>
+
+function sqrNorm(zr, zi){
+    return zr * zr + zi * zi;
+}
+
+function withinManderbrotSet(zr, zi){
+    var zr0 = zr;
+    var zi0 = zi;
+    var iterationLimit = 50;
+    if (sqrNorm(zr, zi) > 4)
+        return false;
+
+    for(var i=0; i<iterationLimit; i++){
+        newZr = zr * zr - zi * zi + zr0;
+        newZi = 2 * zr * zi + zi0;
+        if (sqrNorm(newZr, newZi) > 4)
+            return false;
+        zr = newZr;
+        zi = newZi;
+    }
+    return true;
+}
+
+var canvas=document.getElementById('myCanvas');
+var context=canvas.getContext('2d');
+
+var width = 600;
+var height = 400;
+var step = 1;
+var magnifier = 200;
+var centerX = parseInt(width/2);
+var centerY = parseInt(height/2);
+var offsetX = 150;
+var offsetY = 0;
+
+for(var x=0; x<width; x=x+step){
+    for(var y=0; y<height; y=y+step){
+        var zr = (x-centerX-offsetX)/magnifier;
+        var zi = (y-centerY-offsetY)/magnifier;
+        if(withinManderbrotSet(zr, zi)){
+            context.fillStyle = "rgb(" + parseInt(x/width*255) + "," +
+            parseInt(y/height*255) + ", 1)";
+            //console.log(context.fillStyle);
+            context.fillRect(x,y,step,step);
+        }
+        else{
+            context.fillStyle = "black";
+            context.fillRect(x,y,step, step);
+        }
+        //console.log((x*height + y)/(height*width));
+    }
+}
+
+//context.fillStyle = "red";
+//context.fillRect(centerX, centerY, 1, 1);
+
+</script>
+</html>

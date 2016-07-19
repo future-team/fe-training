@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800">
+
+</canvas>
+</body>
+<script>
+    var canvas=document.getElementById('myCanvas');
+    var context=canvas.getContext('2d');
+    var img=new Image();
+    img.src='./img/img.jpg';
+    img.onload=function(){
+        context.drawImage(img,0,0);
+        var imgData=context.getImageData(0,0,329,220);
+        var pixels=imgData.data;
+        context.clearRect(0,0,329,220);
+        var rows=60;
+        var cols=85;
+        var tileWidth=imgData.width/cols;
+        var tileHeight=imgData.height/rows;
+        for(var r=0;r<rows;r++){
+            for(var c=0;c<cols;c++){
+                var x=(c*tileWidth)+(tileWidth/2);
+                var y=(r*tileWidth)+(tileHeight/2);
+                var pos=(Math.floor(y)*imgData.width*4)+Math.floor(x)*4;
+                var red=pixels[pos];
+                var green=pixels[pos+1];
+                var blue=pixels[pos+2];
+                context.fillStyle='rgb('+red+','+green+','+blue+')';
+                context.beginPath();
+                context.arc(x,y,tileWidth/2,0,Math.PI*2,false);
+                context.closePath();
+                context.fill()
+                //context.fillRect(x-(tileWidth/2),y-(tileHeight/2),tileWidth,tileHeight)
+            }
+        }
+    }
+</script>
+</html>

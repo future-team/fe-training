@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800">
+
+</canvas>
+</body>
+<script>
+    var canvas=document.getElementById('myCanvas');
+    var context=canvas.getContext('2d');
+
+    var Shape=function(x,y,w,h,offsetX,offsetY){
+        this.x=x;
+        this.y=y;
+        this.w=w;
+        this.h=h;
+        this.offsetX=offsetX;
+        this.offsetY=offsetY;
+        this.color='rgb('+(Math.random()*255).toFixed()+','+(Math.random()*255).toFixed()+','+(Math.random()*255).toFixed()+')';
+    }
+    var shapes=new Array();
+    for(var i=0;i<300;i++){
+        var x=Math.random()*800;
+        var y=Math.random()*800;
+        var w=h=Math.random()*6;
+        var offsetX=Math.random()*4-2;
+        var offsetY=Math.random()*4-2;
+        shapes.push(new Shape(x,y,w,h,offsetX,offsetY))
+    }
+    function animate(){
+        context.fillStyle='black';
+        context.fillRect(0,0,800,800);
+        for(var i=0;i<shapes.length;i++){
+            var tempShape=shapes[i];
+            tempShape.x+=tempShape.offsetX;
+            tempShape.y+=tempShape.offsetY;
+            context.fillStyle=tempShape.color;
+            context.beginPath();
+            context.arc(tempShape.x,tempShape.y,tempShape.w/2,0,Math.PI*2,true);
+            context.fill();
+            //context.fillRect(tempShape.x,tempShape.y,tempShape.w,tempShape.h)
+        }
+        setTimeout(animate,100);
+    }
+    animate();
+</script>
+</html>
