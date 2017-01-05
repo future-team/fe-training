@@ -1,0 +1,36 @@
+{
+  "pages":[
+   "pages/index/index",
+    "pages/logs/logs",
+    "pages/swiper/swiper",
+    "pages/input/input",
+    "pages/form/form"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "微信小程序",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar":{
+      "borderStyle": "white",
+      "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath":"image/icon_API.png",
+      "selectedIconPath":"image/icon_API_HL.png",  
+      "text": "首页"
+        },{
+      "pagePath": "pages/form/form",
+      "iconPath":"image/plus.png",
+      "selectedIconPath":"image/green_tri.png",
+      "text": "更多"
+    }, {
+      "pagePath": "pages/swiper/swiper",
+      "iconPath":"image/icon_COM.png",
+      "selectedIconPath":"image/icon_COM_HL.png",
+      "text": "其他"
+    }
+    ]
+  } 
+}
