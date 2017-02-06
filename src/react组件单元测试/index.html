@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+		<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>React组件单元测试</h2>
+					<h3>React Component Unit Testing</h3>
+				</section>
+				<section>
+					<ul>
+						<li><h4>React Test Utilities</h4></li>
+						<li><h4>Enzyme</h4></li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h4>React Test Utilities</h4>
+						<ul>
+							<li>shallowRender</li>
+							<li>renderIntoDocument</li>
+							<li>Simulate</li>
+						</ul>
+					</section>
+					<section>
+						<h4>shallowRender</h4>
+						<ul>
+							<li>Shallow rendering是指将组件渲染成虚拟DOM对象，本质上并没有加载进真实DOM，所以并不要求DOM环境，浅渲染只渲染组件的第一层，不涉及所有的子组件，因此在处理速度上非常快。</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						```
+						<section data-markdown>
+							// 函数shallowRender返回浅渲染的虚拟DOM对象
+							function shallowRender(Component, props){
+							    const renderer = TestUtils.createRenderer();
+							    renderer.render(<Component {...props}/>);
+							    return renderer.getRenderOutput();
+							}
+						</section>
+						```
+						```
+						<section data-markdown>
+							// 浅渲染适用于不需要DOM交互，不涉及子组件的情况
+							describe("<Button/>", function(){
+							    it('phStyle设置为primary', ()=>{
+							        const button = shallowRender(<Button phStyle='primary'></Button>);
+							        assert(button.props.className.match('primary'));
+							    });
+							});
+						</section>
+						```
+					</section>
+					<section>
+						<h4>renderIntoDocument</h4>
+						<ul>
+							<li>renderIntoDocument将组件实例化，渲染成真实的DOM对象，因此操作环境也是要求必须是真实的DOM环境。渲染成真实DOM之后，可以进行交互，也可以查看子组件的状态。</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						```
+						<section data-markdown>
+							// 验证Switch组件改变时是否触发了onChange
+							describe("<Switch/>", function(){
+							    it('改变时触发onChange', ()=>{
+							        let checked = true;
+							        const switchs = TestUtils.renderIntoDocument(<Switch checked={checked} onChange={()=>{checked=false}} />);
+							        const checkbox = TestUtils.scryRenderedDOMComponentsWithTag(switchs, 'input')[0];
+							        TestUtils.Simulate.change(checkbox);
+							        assert.equal(checked, false);
+							    });
+							});
+						</section>	
+						```
+					</section>
+					<section data-markdown>
+						<h4>Simulate</h4>
+						```
+						<section data-markdown>
+							// Simulate.{eventName}(element,[eventData])将组件渲染进真实DOM中，模拟人为操作，如点击、输入等。
+							TestUtils.Simulate.click(node);
+							TestUtils.Simulate.change(node);
+							TestUtils.Simulate.keyDown(node, {key: "Enter", keyCode: 13, which: 13});
+						</section>	
+						```
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4>Enzyme</h4>
+						<ul>
+							<li>shallow</li>
+							<li>mount</li>
+							<li>render</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<h4>shallow</h4>
+						```
+						<section data-markdown>
+							// shallow方法是对Shallow Rendering的封装
+							it('phStyle设置为primary', ()=>{
+							    const button = shallow(<Button phStyle='primary'>btn</Button>);
+							    assert(button.props().className.match('primary'));
+							});
+						</section>
+						```
+						```
+						<section data-markdown>
+							// 使用find()方法查找子节点，text()方法获取文本内容
+							it('checkbox: label传值显示正常', ()=>{
+							    let label = '测试';
+							    const checkbox = shallow(<Input type='checkbox' label={label} />);
+							    assert.equal(checkbox.find('span').text(), label);
+							});
+						</section>
+						```
+					</section>
+					<section data-markdown>
+						<h4>mount</h4>
+						```
+						<section data-markdown>
+							// mount将React组件加载为真实的DOM节点
+							it('改变时触发onChange', ()=>{
+							    let checked = true;
+							    const switchs = mount(<Switch checked={checked} onChange={()=>{checked=false}} />);
+							    
+							    switchs.find('input').simulate('change');
+							    assert.equal(checked, false);
+							});
+						</section>
+						```
+					</section>
+					<section data-markdown>
+						<h4>render</h4>
+						```
+						<section data-markdown>
+							// render方法采用第三方库Cheerio，将React组件渲染成静态的HTML片段并分析其HTML代码结构，返回一个Cheerio实例对象
+							it('checkbox: label传值显示正常', ()=>{
+							    let label = '测试';
+							    const checkbox = render(<Input type='checkbox' label={label} />);
+							    assert.equal(checkbox.find('span').text(), label);
+							});
+						</section>
+						```
+					</section>
+				</section>
+				<section>
+					<h4>Jest</h4>
+					<p>Jest是facebook基于Jasmine的开发的针对React的单元测试框架。</p>
+				</section>
+				<section>Thank you.</section>
+			</div>
+		</div>
+
+		<script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+		<script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'http://lab.hakim.se/reveal-js/plugin/markdown/marked.js' },
+					{ src: 'http://lab.hakim.se/reveal-js/plugin/markdown/markdown.js' },
+					{ src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true },
+					{ src: 'http://lab.hakim.se/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
